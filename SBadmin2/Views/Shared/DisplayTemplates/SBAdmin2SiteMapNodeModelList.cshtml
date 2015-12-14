@@ -1,0 +1,17 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModelList
+
+@{
+    <ul class="nav @SBAdmin2SiteMapHelper.GetLevelName(Model.First())">
+        @foreach (var node in Model)
+        {
+            <li @SBAdmin2SiteMapHelper.GetActiveClass(node)>
+                @Html.DisplayFor(m => node, SBAdmin2SiteMapHelper.TemplateName.SiteMapNodeModel)
+                
+                @if (node.Children.Any())
+                {
+                    @Html.DisplayFor(m => node.Children, SBAdmin2SiteMapHelper.TemplateName.SiteMapNodeModelList)
+                }
+            </li>
+        }
+    </ul>
+}

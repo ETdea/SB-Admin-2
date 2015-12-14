@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @RenderPage(MVC.Shared.Views.LayoutPage.Head)
+
+    @RenderSection("styles", required: false)
+
+    <!-- 標題在Head.cshtml設定 -->
+    <title></title>
+
+</head>
+
+<body>
+
+    @RenderBody()
+
+    <!-- jQuery -->
+    @Scripts.Render(ScriptName.JQuery)
+
+    <!-- Bootstrap Core JavaScript -->
+    @Scripts.Render(ScriptName.Bootstrap)
+
+    <!-- Metis Menu Plugin JavaScript, Custom Theme JavaScript -->
+    @Scripts.Render(ScriptName.SbAdmin2)
+
+
+    @RenderSection("scripts", required: false)
+
+</body>
+
+</html>

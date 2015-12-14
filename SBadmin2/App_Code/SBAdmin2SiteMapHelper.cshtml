@@ -1,0 +1,51 @@
+﻿@using MvcSiteMapProvider.Web.Html.Models
+
+
+@functions{
+    public struct TemplateName
+    {
+        static public string SiteMapNodeModel = "SBAdmin2SiteMapNodeModel";
+        static public string SiteMapNodeModelList = "SBAdmin2SiteMapNodeModelList";
+        static public string MenuHelperModel = "SBAdmin2MenuHelperModel";
+    }
+
+    static public bool IsCurrentNode(SiteMapNodeModel node)
+    {
+        if (node.IsCurrentNode || node.Children.Any(p => IsCurrentNode(p)))
+        {
+            return true;
+        }
+
+        return false;
+    }
+    
+    static public string GetLevelName(SiteMapNodeModel node)
+    {
+        switch (GetLevel(node))
+        {
+            case 2:
+                return "nav-second-level";
+            case 3:
+            default:
+                return "nav-third-level";
+        }
+    }
+
+    static public int GetLevel(SiteMapNodeModel node)
+    {
+        if (node.Parent != null)
+        {
+            return GetLevel(node.Parent) + 1;
+        }
+
+        return 0;
+    }
+}
+
+@helper GetActiveClass(SiteMapNodeModel node)
+{
+    if (IsCurrentNode(node))
+    {
+        <text>class="active"</text>
+    }
+}

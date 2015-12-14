@@ -1,0 +1,57 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel
+
+@{
+    if (Model.IsCurrentNode && Model.SourceMetadata["HtmlHelper"].ToString() != "MvcSiteMapProvider.Web.Html.MenuHelper")
+    {
+        <text>@Model.Title</text>
+    }
+    else if (Model.IsClickable)
+    {
+        var url = Model.Url;
+
+        if (url.StartsWith("/#"))
+        {
+            url = Request.Url.AbsolutePath.TrimEnd('/') + url.TrimStart('/');
+        }
+
+        <a @GetActiveClass() href="@url">@GetIcon() @Model.Title @GetSpan()</a>
+    }
+    else
+    {
+        <text>@Model.Title</text>
+    }
+}
+
+@helper GetActiveClass()
+{
+    if (Model.IsCurrentNode)
+    {
+        <text>class="active"</text>
+    }
+}
+
+@helper GetIcon()
+{
+    var iconClass = Model.Attributes.Where(p => p.Key == "icon").Select(p => (string)p.Value).FirstOrDefault();
+
+    if (!string.IsNullOrEmpty(iconClass))
+    {
+        <i class="@iconClass"></i>
+    }
+}
+
+@helper GetTitle()
+{
+    if (!string.IsNullOrEmpty(Model.Description))
+    {
+        <text>title="@Model.Description"</text>
+    }
+}
+
+@helper GetSpan()
+{
+    if (Model.Children.Any())
+    {
+        <span class="fa arrow"></span>
+    }
+}

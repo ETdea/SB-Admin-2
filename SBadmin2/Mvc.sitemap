@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Home" controller="Demo" url="/home">
+
+    <mvcSiteMapNode title="Dashboard" action="Dashboard" icon="fa fa-dashboard fa-fw"/>
+
+    <mvcSiteMapNode title="Charts" action="Charts" controller="Demo" icon="fa fa-bar-chart-o fa-fw">
+      <mvcSiteMapNode title="Flot Charts" action="Flot"/>
+      <mvcSiteMapNode title="Morris.js Charts" action="Morris" />
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Tables" action="Tables" icon="fa fa-table fa-fw"/>
+    <mvcSiteMapNode title="Forms" action="Forms" icon="fa fa-edit fa-fw"/>
+
+    <mvcSiteMapNode title="UI Elements" action="null" controller="Demo" icon="fa fa-wrench fa-fw">
+      <mvcSiteMapNode title="Panels and Wells" action="Panelswells" />
+      <mvcSiteMapNode title="Buttons" action="Buttons"/>
+      <mvcSiteMapNode title="Notifications" action="Notifications" />
+      <mvcSiteMapNode title="Typography" action="Typography"/>
+      <mvcSiteMapNode title="Grid" action="Grid"/>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Multi-Level Dropdown" url="/Level1" icon="fa fa-sitemap fa-fw">
+      <mvcSiteMapNode title="Second Level Item" url="#Level2item1" />
+      <mvcSiteMapNode title="Second Level Item" url="#Level2item2" />
+
+      <mvcSiteMapNode title="Third Level" url="/Level2">
+        <mvcSiteMapNode title="Third Level Item" url="#Level3item1" />
+        <mvcSiteMapNode title="Third Level Item" url="#Level3item2" />
+        <mvcSiteMapNode title="Third Level Item" url="#Level3item3" />
+        <mvcSiteMapNode title="Third Level Item" url="#Level3item4" />
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Sample Pages" action="blank" controller="Demo" icon="fa fa-files-o fa-fw">
+      <mvcSiteMapNode title="Blank Page" action="blank" />
+      <mvcSiteMapNode title="Login Page" action="Login"/>
+    </mvcSiteMapNode>
+
+    <!--測試Multi-Level用-->
+    <!--<mvcSiteMapNode title="Multi-Level Dropdown" action="null" controller="Demo"  icon="fa fa-sitemap fa-fw">
+      <mvcSiteMapNode title="Second Level Item" action="Panelswells"  />
+      <mvcSiteMapNode title="Second Level Item" action="Buttons"  />
+
+      <mvcSiteMapNode title="Third Level" url="/Level2">
+        <mvcSiteMapNode title="Third Level Item" action="Notifications"  />
+        <mvcSiteMapNode title="Third Level Item" action="Typography"  />
+        <mvcSiteMapNode title="Third Level Item" action="Grid"  />
+        <mvcSiteMapNode title="Third Level Item" action="blank"  />
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>-->
+
+  </mvcSiteMapNode>
+</mvcSiteMap>

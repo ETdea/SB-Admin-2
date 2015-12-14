@@ -1,0 +1,15 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.MenuHelperModel
+
+@foreach (var node in Model.Nodes)
+{
+    <li @SBAdmin2SiteMapHelper.GetActiveClass(node)>
+        @Html.DisplayFor(m => node, SBAdmin2SiteMapHelper.TemplateName.SiteMapNodeModel)
+
+
+        @if (node.Children.Any())
+        {
+            @Html.DisplayFor(m => node.Children, SBAdmin2SiteMapHelper.TemplateName.SiteMapNodeModelList)
+        }
+    </li>
+}
+
